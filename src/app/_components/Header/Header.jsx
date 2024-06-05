@@ -45,6 +45,7 @@ export default function Header() {
             alt="logo"
             className="w-[200px] h-full xl:w-[260px]"
           /> */}
+          {/* ko lo go */}
           <span className="w-[200px] h-full xl:w-[260px] text-2xl lg:text-3xl font-bold text-white">
             SMART PC
           </span>
@@ -60,7 +61,7 @@ export default function Header() {
           <DropdownMenuContent asChild>
             <ul className="p-0 w-[300px] flex flex-col relative">
               {CategoryProductList?.map((item, index) => (
-                <HoverCard>
+                <HoverCard key={index}>
                   <HoverCardTrigger asChild>
                     <li
                       className="cursor-pointer p-3 pl-4 text-[13px] hover:bg-[#026db5] hover:text-white group"
