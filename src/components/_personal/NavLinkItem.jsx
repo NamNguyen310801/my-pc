@@ -9,7 +9,7 @@ export default function NavLinkItem({ item }) {
     <Link
       className={`${
         pathname === "/" + href ? "text-red-500 underline font-semibold" : ""
-      }`}
+      } text-center`}
       href={`/${href}`}>
       {name}
     </Link>

@@ -30,9 +30,9 @@ export default function BackToTop() {
     <div
       className={`${
         !isVisible ? "hidden" : "fixed"
-      }  w-10 h-10 bottom-[100px] right-20`}
+      } bottom-10 right-5 md:bottom-[100px] md:right-20`}
       onClick={scrollToTop}>
-      <Button className="bg-[#026db5]">
+      <Button className="bg-[#026db5] px-2 md:px-4">
         <ArrowBigUp size={32} color="#Ffffff" />
       </Button>
     </div>

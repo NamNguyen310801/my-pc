@@ -1,14 +1,9 @@
-"use client";
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { toast } from "sonner";
-
-export default function ProductItem({ item }) {
-  const onSelected = () => {
-    toast("Chọn sản phẩm thành công!");
-  };
+import { Input } from "../ui/input";
+export default function ProductSelectedItem({ item }) {
   return (
     <div className="w-full flex items-center justify-between float-left border p-4 rounded-sm">
       <Link
@@ -30,17 +25,21 @@ export default function ProductItem({ item }) {
         <h4 className="font-bold text-[#222] uppercase">
           {item?.name || "Vỏ Máy Tính XIGMATEK XM-10 (EN44252) M-ATX"}
         </h4>
-        <div>
-          <span className="text-[#026db5] bg-[#0093623d] font-semibold p-1 rounded-sm">
-            {"Còn hàng"}
-          </span>
+        <div className="max-w-14">
+          <Input
+            className="border font-semibold px-2"
+            defaultValue={1}
+            type="number"
+            min={0}
+            step="1"
+          />
         </div>
         <span className="text-red-600 font-semibold">
           {item?.price || "240.000"}đ
         </span>
       </div>
-      <div className="flex items-center justify-end py-4" onClick={onSelected}>
-        <Button className="bg-red-600 hover:bg-red-500">Chọn</Button>
+      <div className="flex items-center justify-end py-4">
+        <Button>Xoá</Button>
       </div>
     </div>
   );
