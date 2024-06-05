@@ -24,7 +24,11 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 export default function Header() {
   const pathname = usePathname();
   const showHeader =
@@ -56,11 +60,30 @@ export default function Header() {
           <DropdownMenuContent asChild>
             <ul className="p-0 w-[300px] flex flex-col relative">
               {CategoryProductList?.map((item, index) => (
-                <li
-                  className="cursor-pointer p-3 pl-4 text-[13px] hover:bg-[#026db5] hover:text-white group"
-                  key={index}>
-                  <CategoryProductItem item={item} />
-                </li>
+                <HoverCard>
+                  <HoverCardTrigger asChild>
+                    <li
+                      className="cursor-pointer p-3 pl-4 text-[13px] hover:bg-[#026db5] hover:text-white group"
+                      key={index}>
+                      <CategoryProductItem item={item} />
+                    </li>
+                  </HoverCardTrigger>
+                  <HoverCardContent align="right" side="right" asChild>
+                    <ul className="p-0 w-[300px] flex flex-col">
+                      {item?.categoryList?.map((category, i) => (
+                        <li
+                          className="cursor-pointer p-3 pl-4 group"
+                          key={index + "" + i}>
+                          <Link
+                            href={`/${item?.href}/${category?.href}`}
+                            className="text-[13px] font-semibold group-hover:underline">
+                            {category?.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </HoverCardContent>
+                </HoverCard>
               ))}
             </ul>
           </DropdownMenuContent>
